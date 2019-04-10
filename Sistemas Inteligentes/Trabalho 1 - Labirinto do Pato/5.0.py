@@ -1,3 +1,5 @@
+from collections import deque
+
 class Grid:
     def __init__(self, filename):
         self.filename = filename
@@ -48,9 +50,9 @@ class Agent:
 
     def turn(self, direction):
         if direction == 4:
-            self.direction = self.directions[self.directions.index(self.direction)-1]
+            return self.directions[self.directions.index(self.direction)-1]
         elif direction == 6:
-            self.direction = self.directions[(self.directions.index(self.direction) + 1) % len(self.directions)]
+            return self.directions[(self.directions.index(self.direction) + 1) % len(self.directions)]
 
     def go(self, direction):
         old_pos = self.pos.copy()
@@ -90,6 +92,26 @@ class Agent:
 
 
 
+def bsf():
+    options = ['left', 'right', 'move']
+    best_route = []
+    frontier = deque()
+    combo = agent.pos.copy()
+    combo.append(agent.direction)
+    frontier.append(combo)
+    print(frontier)
+    while len(frontier):
+        agent.pos = frontier[0][0], frontier[0][1]
+        agent.direction = frontier[0][2]
+        for opt in options:
+            if opt == 'left':
+                combo[2] = agent.turn(4)
+            elif opt == 'right':
+                combo[2] = agent.turn(6)
+            elif opt == 'move':
+                combo[0],combo[1] =
+
+
 
 
 
@@ -102,3 +124,5 @@ if __name__ == '__main__':
         print(line)
 
     agent = Agent(gridc.init_pos, gridc.blacklisted_pos, gridc.objective_pos, gridc.w, gridc.h)
+
+    bsf()
