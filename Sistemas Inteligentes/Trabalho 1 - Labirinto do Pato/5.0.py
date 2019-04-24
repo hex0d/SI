@@ -109,7 +109,7 @@ def bsf():
             elif opt == 'right':
                 combo[2] = agent.turn(6)
             elif opt == 'move':
-                combo[0],combo[1] =
+                combo[0],combo[1],combo[2] = agent.go(agent.direction)[0],agent.go(agent.direction)[1], agent.direction
 
 
 

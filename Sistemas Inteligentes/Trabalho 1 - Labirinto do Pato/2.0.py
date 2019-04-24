@@ -133,7 +133,6 @@ if __name__ == '__main__':
 
         best_route = []
         objective = str(agent.objective_pos)
-        print(foundby)
         while objective != str(gridc.init_pos):
             objective = foundby[objective]
             best_route.append(objective)

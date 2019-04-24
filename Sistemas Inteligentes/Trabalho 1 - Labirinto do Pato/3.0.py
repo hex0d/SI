@@ -1,4 +1,4 @@
-from collections import deque, defaultdict
+from collections import deque
 import math
 
 class Agent:
@@ -237,10 +237,9 @@ if __name__ == '__main__':
     agent.pos.append(6)
 
 
-    astar()
 
 
 
 
-    #bfs()
+    bfs()
 
